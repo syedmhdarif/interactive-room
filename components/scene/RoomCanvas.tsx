@@ -26,19 +26,19 @@ function LoadingBar() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#0a0a1a',
-        color: 'rgba(255,255,255,0.5)',
+        background: '#030810',
+        color: 'rgba(0,220,160,0.6)',
         fontFamily: 'monospace',
         fontSize: '0.85rem',
         gap: '12px',
       }}
     >
-      <div>Loading room... {Math.round(progress)}%</div>
+      <div>Loading... {Math.round(progress)}%</div>
       <div
         style={{
           width: '180px',
           height: '2px',
-          background: 'rgba(255,255,255,0.1)',
+          background: 'rgba(255,255,255,0.08)',
           borderRadius: '2px',
           overflow: 'hidden',
         }}
@@ -47,7 +47,7 @@ function LoadingBar() {
           style={{
             width: `${progress}%`,
             height: '100%',
-            background: 'linear-gradient(90deg, #4488ff, #88ccff)',
+            background: 'linear-gradient(90deg, #00cc88, #00ffcc)',
             transition: 'width 0.3s ease',
           }}
         />
@@ -63,7 +63,7 @@ export function RoomCanvas() {
         style={{
           width: '100vw',
           height: '100vh',
-          background: '#0a0a1a',
+          background: '#030810',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -72,7 +72,7 @@ export function RoomCanvas() {
           camera={{
             fov: 75,
             near: 0.05,
-            far: 200,
+            far: 600,
             position: [...CAMERA_START_POSITION],
           }}
           shadows

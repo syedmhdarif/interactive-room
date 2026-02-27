@@ -44,6 +44,20 @@ export function FirstPersonControls() {
     const onPointerLockChange = () => {
       const locked = document.pointerLockElement === canvas;
       setIsLocked(locked);
+
+      if (locked) {
+        // Recenter R3F's raycaster to canvas center every time pointer lock is acquired.
+        // Without this, the raycaster stays at where the real cursor was when lock
+        // was re-acquired (e.g. the modal close button), causing missed hits on the hitbox.
+        const rect = canvas.getBoundingClientRect();
+        canvas.dispatchEvent(
+          new PointerEvent('pointermove', {
+            clientX: rect.left + rect.width / 2,
+            clientY: rect.top + rect.height / 2,
+            bubbles: true,
+          })
+        );
+      }
     };
 
     const onPointerLockError = () => {

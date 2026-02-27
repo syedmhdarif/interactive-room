@@ -34,7 +34,7 @@ export function ProjectModal() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'rgba(20, 8, 0, 0.65)',
+        background: 'rgba(3, 8, 16, 0.72)',
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
       }}
@@ -42,15 +42,15 @@ export function ProjectModal() {
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: 'rgba(30, 12, 4, 0.92)',
+          background: 'rgba(5, 15, 30, 0.94)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
-          border: '1px solid rgba(255, 180, 80, 0.2)',
+          border: '1px solid rgba(0,220,160,0.2)',
           borderRadius: '20px',
           padding: '2rem 2.2rem',
           maxWidth: '640px',
           width: '92%',
-          boxShadow: '0 0 80px rgba(255,120,40,0.15), 0 8px 40px rgba(0,0,0,0.6)',
+          boxShadow: '0 0 80px rgba(0,180,120,0.12), 0 8px 40px rgba(0,0,0,0.7)',
           color: '#fff',
           position: 'relative',
         }}
@@ -77,7 +77,7 @@ export function ProjectModal() {
 
         {/* Header */}
         <p style={{
-          color: 'rgba(255,180,80,0.7)',
+          color: 'rgba(0,220,160,0.7)',
           fontSize: '0.75rem',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
@@ -112,7 +112,7 @@ export function ProjectModal() {
               style={{
                 display: 'block',
                 background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,180,80,0.15)',
+                border: '1px solid rgba(0,220,160,0.15)',
                 borderRadius: '12px',
                 padding: '1.1rem 1.2rem',
                 textDecoration: 'none',
@@ -121,11 +121,11 @@ export function ProjectModal() {
                 cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,180,80,0.4)';
-                (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,180,80,0.06)';
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(0,220,160,0.4)';
+                (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(0,220,160,0.06)';
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,180,80,0.15)';
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(0,220,160,0.15)';
                 (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.04)';
               }}
             >
@@ -139,7 +139,7 @@ export function ProjectModal() {
                 </span>
                 <span style={{
                   marginLeft: '6px',
-                  color: 'rgba(255,180,80,0.7)',
+                  color: 'rgba(0,220,160,0.7)',
                   fontSize: '0.8rem',
                 }}>
                   ↗
@@ -156,12 +156,12 @@ export function ProjectModal() {
               <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                 {project.tags.map((tag) => (
                   <span key={tag} style={{
-                    background: 'rgba(255,140,40,0.15)',
-                    border: '1px solid rgba(255,140,40,0.2)',
+                    background: 'rgba(0,200,140,0.12)',
+                    border: '1px solid rgba(0,200,140,0.2)',
                     borderRadius: '999px',
                     padding: '1px 10px',
                     fontSize: '0.68rem',
-                    color: 'rgba(255,200,120,0.8)',
+                    color: 'rgba(0,220,160,0.85)',
                     fontFamily: 'monospace',
                   }}>
                     {tag}

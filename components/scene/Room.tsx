@@ -1,55 +1,50 @@
 'use client';
 
 import { Suspense } from 'react';
-import { Sky } from '@react-three/drei';
 import { RoomLighting } from './lighting/RoomLighting';
-import { FloatingIsland } from './FloatingIsland';
-import { HouseModel } from './models/HouseModel';
-import { PlantModel } from './models/PlantModel';
-import { PeopleModel } from './models/PeopleModel';
+import { AuroraSky } from './AuroraSky';
+import { GrassField } from './GrassField';
+import { TableModel } from './models/TableModel';
 import { ComputerModel } from './models/ComputerModel';
-import { HotspotsLayer } from './hotspots/HotspotsLayer';
+import { PeopleModel } from './models/PeopleModel';
+import { HouseModel } from './models/HouseModel';
 
 export function Room() {
   return (
     <group name="world">
-      {/* Sunset sky */}
-      <Sky
-        distance={450000}
-        sunPosition={[0.6, 0.08, -1]}
-        turbidity={8}
-        rayleigh={4}
-        mieCoefficient={0.008}
-        mieDirectionalG={0.8}
-      />
+      {/* Very faint night fog — softens distant geometry */}
+      <fog attach="fog" args={['#030810', 60, 280]} />
 
-      {/* Warm atmospheric haze at the horizon */}
-      <fog attach="fog" args={['#ff9955', 35, 130]} />
+      {/* Night sky + vivid aurora curtains + stars */}
+      <AuroraSky />
 
+      {/* Lighting — moonlight + aurora bounce + desk screen glow */}
       <RoomLighting />
 
-      {/* ── Procedural floating island ── */}
-      <FloatingIsland />
+      {/* Ground — grass plane + instanced tufts + wildflowers */}
+      <GrassField />
 
-      {/* ── Models on the island ── */}
+      {/* ── Desk setup — scene focal point ────────────────────────────── */}
       <Suspense fallback={null}>
-        <HouseModel />
+        <TableModel />
       </Suspense>
 
       <Suspense fallback={null}>
-        <PeopleModel />
-      </Suspense>
-
-      <Suspense fallback={null}>
-        <PlantModel />
-      </Suspense>
-
-      <Suspense fallback={null}>
+        {/* Computer sits on the table surface */}
         <ComputerModel />
       </Suspense>
 
-      {/* Clickable hotspot on the laptop screen */}
-      <HotspotsLayer />
+      <Suspense fallback={null}>
+        {/* Person stands beside the table; speech bubble above head */}
+        <PeopleModel />
+      </Suspense>
+
+      {/* ── Background ────────────────────────────────────────────────── */}
+      <Suspense fallback={null}>
+        {/* House — far behind the setup, lit from within */}
+        <HouseModel />
+      </Suspense>
+
     </group>
   );
 }

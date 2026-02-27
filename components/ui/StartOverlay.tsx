@@ -22,7 +22,7 @@ export function StartOverlay() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'rgba(20, 8, 0, 0.75)',
+        background: 'rgba(3, 8, 18, 0.78)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
         cursor: 'pointer',
@@ -30,27 +30,25 @@ export function StartOverlay() {
       }}
     >
       <p style={{
-        color: 'rgba(255, 180, 80, 0.8)',
+        color: 'rgba(0, 220, 160, 0.8)',
         fontSize: '0.75rem',
         letterSpacing: '0.3em',
         textTransform: 'uppercase',
-        marginBottom: '0.75rem',
         fontFamily: 'monospace',
         margin: '0 0 0.75rem',
       }}>
-        Floating Sunset World
+        Aurora Night Garden
       </p>
 
       <h1 style={{
         color: '#ffffff',
         fontSize: 'clamp(2rem, 5vw, 3.5rem)',
         fontWeight: 700,
-        marginBottom: '0.4rem',
         letterSpacing: '-0.02em',
         textAlign: 'center',
         margin: '0 0 0.4rem',
       }}>
-        Arif&apos;s Room
+        Arif&apos;s Portfolio
       </h1>
 
       <p style={{
@@ -58,14 +56,14 @@ export function StartOverlay() {
         fontSize: '1rem',
         margin: '0 0 2.5rem',
       }}>
-        Interactive 3D Portfolio
+        Interactive 3D World
       </p>
 
       <div style={{
         padding: '11px 36px',
-        border: '1px solid rgba(255,180,80,0.35)',
+        border: '1px solid rgba(0,220,160,0.35)',
         borderRadius: '999px',
-        color: 'rgba(255,220,140,0.9)',
+        color: 'rgba(0,255,180,0.9)',
         fontSize: '0.88rem',
         fontFamily: 'monospace',
         animation: 'pulse 2.5s ease-in-out infinite',
@@ -84,7 +82,7 @@ export function StartOverlay() {
       }}>
         <span>WASD · Move</span>
         <span>Mouse · Look</span>
-        <span>Click Laptop · Projects</span>
+        <span>Click Computer · Projects</span>
         <span>Shift · Sprint</span>
       </div>
     </div>

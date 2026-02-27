@@ -3,50 +3,109 @@
 export function RoomLighting() {
   return (
     <>
-      {/* Warm sunset ambient — base illumination */}
-      <ambientLight intensity={0.8} color="#ffcc88" />
+      {/* ── Base ambient — night sky scattered light ─────────────────────
+          Enough to see the scene clearly without washing it out.         */}
+      <ambientLight intensity={0.65} color="#1a2a50" />
 
-      {/* Hemisphere — warm golden sky top, deep purple ground shadow */}
-      <hemisphereLight args={['#ffaa44', '#3a1a4a', 0.9]} />
+      {/* Hemisphere — aurora-lit sky (green-blue) + bright ground bounce */}
+      <hemisphereLight args={['#1a4060', '#143010', 1.8]} />
 
-      {/* Sun — low on the horizon, casting long warm shadows */}
+      {/* ── Moonlight ──────────────────────────────────────────────────── */}
       <directionalLight
-        position={[8, 3, -6]}
-        intensity={3.5}
-        color="#ff7733"
+        position={[-10, 20, 10]}
+        intensity={1.8}
+        color="#d0dcff"
         castShadow
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-        shadow-camera-near={0.1}
-        shadow-camera-far={50}
-        shadow-camera-left={-10}
-        shadow-camera-right={10}
-        shadow-camera-top={10}
-        shadow-camera-bottom={-10}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        shadow-camera-near={0.5}
+        shadow-camera-far={100}
+        shadow-camera-left={-25}
+        shadow-camera-right={25}
+        shadow-camera-top={25}
+        shadow-camera-bottom={-25}
       />
 
-      {/* Soft fill from the opposite side — blue-purple dusk tone */}
+      {/* ── Aurora directional fills ────────────────────────────────────
+          These cast the aurora color as actual scene light.              */}
+
+      {/* Primary green — from where the main aurora curtain sits */}
       <directionalLight
-        position={[-5, 2, 3]}
-        intensity={0.6}
-        color="#8844cc"
+        position={[0, 30, -60]}
+        intensity={2.2}
+        color="#00ff88"
       />
 
-      {/* Warm point light near the house — cozy window glow */}
+      {/* Teal sweep — left arc */}
+      <directionalLight
+        position={[-40, 25, -45]}
+        intensity={1.2}
+        color="#00ccff"
+      />
+
+      {/* Violet curtain — right arc */}
+      <directionalLight
+        position={[40, 28, -40]}
+        intensity={1.2}
+        color="#cc44ff"
+      />
+
+      {/* ── Aurora sky glow — large area lights from high above ─────────
+          Simulate the aurora casting coloured light down onto the ground. */}
+
+      {/* Green dome light */}
       <pointLight
-        position={[-2, 1.5, -0.5]}
-        intensity={4}
-        color="#ffaa44"
-        distance={4}
+        position={[0, 45, -50]}
+        intensity={40}
+        color="#00ff77"
+        distance={160}
+        decay={1.1}
+      />
+
+      {/* Teal dome light */}
+      <pointLight
+        position={[-40, 38, -45]}
+        intensity={25}
+        color="#00bbff"
+        distance={130}
+        decay={1.1}
+      />
+
+      {/* Violet dome light */}
+      <pointLight
+        position={[40, 42, -40]}
+        intensity={25}
+        color="#bb44ff"
+        distance={130}
+        decay={1.1}
+      />
+
+      {/* ── Scene props ─────────────────────────────────────────────────── */}
+
+      {/* House — warm amber window glow */}
+      <pointLight
+        position={[6, 2.2, -18]}
+        intensity={18}
+        color="#ffcc55"
+        distance={14}
         decay={2}
       />
 
-      {/* Computer screen glow — soft cool blue */}
+      {/* Computer screen — blue-white glow illuminating the desk */}
       <pointLight
-        position={[1.5, 1.2, -0.2]}
-        intensity={1.5}
-        color="#88bbff"
-        distance={2}
+        position={[0, 1.5, -0.3]}
+        intensity={6}
+        color="#aaddff"
+        distance={6}
+        decay={2}
+      />
+
+      {/* Desk fill — gentle aurora green bounce at ground level */}
+      <pointLight
+        position={[0, 3.5, 1.5]}
+        intensity={3}
+        color="#00ff99"
+        distance={10}
         decay={2}
       />
     </>
