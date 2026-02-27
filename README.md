@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interactive Room — 3D Portfolio
 
-## Getting Started
+A first-person interactive 3D portfolio built with Next.js, React Three Fiber, and Three.js. Walk through an aurora night scene, approach the computer, and explore my projects.
 
-First, run the development server:
+## Live Demo
+
+**[https://interactive-room-wine.vercel.app/](https://interactive-room-wine.vercel.app/)**
+
+## How to Navigate
+
+| Control | Action |
+|---|---
+| Click canvas | Enter first-person mode |
+| W / A / S / D | Move around |
+| Mouse | Look around |
+| Shift | Sprint |
+| Click computer | View projects |
+| ESC | Exit / close modal |
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org) — App Router, SSR disabled for 3D canvas
+- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) — React renderer for Three.js
+- [@react-three/drei](https://github.com/pmndrs/drei) — Helpers (useGLTF, Html)
+- [Three.js](https://threejs.org) — 3D engine, custom GLSL shaders
+- TypeScript
+
+## Features
+
+- Aurora borealis sky with custom vertex-displacement GLSL shaders
+- 11,000 independently twinkling stars (full 360° sphere)
+- First-person WASD controls with pointer lock
+- GLB models: table, computer, character, house
+- Glassmorphism project modal
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000)
