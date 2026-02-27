@@ -30,7 +30,7 @@ export const MODEL_CONFIG = {
   computer: {
     position: [0, 0.8, -0.1] as [number, number, number],
     scale: 1 as number,
-    rotation: [0, Math.PI, 0] as [number, number, number],
+    rotation: [0, 0, 0] as [number, number, number],
   },
 
   // Person — standing to the right of the table, slightly angled toward it
