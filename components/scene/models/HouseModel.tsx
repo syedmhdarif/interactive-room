@@ -6,7 +6,7 @@ import { MODEL_CONFIG } from '@/lib/constants';
 import * as THREE from 'three';
 
 export function HouseModel() {
-  const { scene } = useGLTF('/models/House.glb');
+  const { scene } = useGLTF('/models/Home.glb');
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -39,5 +39,5 @@ export function HouseModel() {
 }
 
 // Clear cached version so the new file is always loaded fresh
-useGLTF.clear('/models/House.glb');
-useGLTF.preload('/models/House.glb');
+useGLTF.clear('/models/Home.glb');
+useGLTF.preload('/models/Home.glb');

@@ -12,7 +12,7 @@ function rand(seed: number): number {
 
 // ── Config ────────────────────────────────────────────────────────────────────
 const FIELD_SIZE   = 50;
-const GRASS_COUNT  = 2800;
+const GRASS_COUNT  = 1000;
 const FLOWER_COUNT = 2200;
 
 // Keep desk area clear
