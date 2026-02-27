@@ -38,4 +38,6 @@ export function HouseModel() {
   );
 }
 
+// Clear cached version so the new file is always loaded fresh
+useGLTF.clear('/models/House.glb');
 useGLTF.preload('/models/House.glb');

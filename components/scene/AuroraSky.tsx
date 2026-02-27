@@ -53,8 +53,8 @@ const auroraFrag = /* glsl */ `
 
     // ── Core ribbon brightness ─────────────────────────────────────────────
     float yDist = abs(vUv.y - 0.5) * 2.0;   // 0 at mid-height, 1 at edges
-    float core  = exp(-yDist * yDist * 5.0) * 2.0;
-    float glow  = exp(-yDist * yDist * 1.2) * 0.55;
+    float core  = exp(-yDist * yDist * 5.0) * 1.2;
+    float glow  = exp(-yDist * yDist * 1.2) * 0.32;
     float alpha = core + glow;
 
     // ── Vertical ray streaks (characteristic of real aurora) ──────────────
@@ -84,19 +84,19 @@ const auroraFrag = /* glsl */ `
     color      = mix(color, u_color3, cf2 * cf3 * 0.55);
 
     // Extra white brightness at the very core
-    color += vec3(0.22) * clamp(core * 0.45, 0.0, 1.0);
+    color += vec3(0.10) * clamp(core * 0.25, 0.0, 1.0);
 
     // Saturation boost (vivid, not washed out)
     float lum  = dot(color, vec3(0.299, 0.587, 0.114));
-    color      = mix(vec3(lum), color, 1.5);
-    color      = clamp(color, 0.0, 1.8); // allow slight bloom
+    color      = mix(vec3(lum), color, 1.2);
+    color      = clamp(color, 0.0, 1.0);
 
     // ── Edge fades ────────────────────────────────────────────────────────
     float edgeX   = smoothstep(0.0, 0.05, vUv.x) * smoothstep(0.0, 0.05, 1.0 - vUv.x);
     float edgeBot  = smoothstep(0.0, 0.14, vUv.y);
     float edgeTop  = smoothstep(0.0, 0.07, 1.0 - vUv.y);
 
-    float finalAlpha = clamp(alpha * edgeX * edgeBot * edgeTop, 0.0, 1.0);
+    float finalAlpha = clamp(alpha * edgeX * edgeBot * edgeTop, 0.0, 0.72);
     gl_FragColor = vec4(color, finalAlpha);
   }
 `;

@@ -48,10 +48,11 @@ export const MODEL_CONFIG = {
   },
 
   // House — far behind and slightly to the right, visible as a landmark
+  // ⚠ New model loaded — tune position/scale/rotation from [HouseModel] console log
   house: {
     position: [6, 0, -18] as [number, number, number],
     scale: 1 as number,
-    rotation: [0, -Math.PI * 0.2, 0] as [number, number, number],
+    rotation: [0, 0, 0] as [number, number, number],
   },
 };
 
